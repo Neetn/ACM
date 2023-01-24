@@ -1,0 +1,74 @@
+const int trigPinAchter= 9;
+const int echoPinAchter = 13;
+const int trigPinVoor = 11;
+const int echoPinVoor = 10;
+
+//define sound speed in cm/uS
+#define SOUND_SPEED 0.034
+
+
+long duration;
+float distanceCm;
+
+
+void setup() {
+  Serial.begin(115200); // Starts the serial communication
+  pinMode(trigPinVoor, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPinVoor, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPinAchter, OUTPUT); 
+  pinMode(echoPinAchter, INPUT);
+}
+
+void loop() {
+ kutsensor();
+ nogeenkutsensor();
+}
+
+void kutsensor(){
+    // Clears the trigPin
+   digitalWrite(trigPinVoor, LOW);
+  delayMicroseconds(2);
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(trigPinVoor, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPinVoor, LOW);
+  
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(echoPinVoor, HIGH);
+  
+  // Calculate the distance
+  distanceCm = duration * SOUND_SPEED/2;
+  
+  // Convert to inches
+  
+  // Prints the distance in the Serial Monitor
+  Serial.print("Distance korte sensor (cm): ");
+  Serial.println(distanceCm);
+
+  
+  delay(1000);
+}
+void nogeenkutsensor(){
+     // Clears the trigPin
+  digitalWrite(trigPinAchter, LOW);
+  delayMicroseconds(2);
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(trigPinAchter, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPinAchter, LOW);
+  
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(echoPinAchter, HIGH);
+  
+  // Calculate the distance
+  distanceCm = duration * SOUND_SPEED/2;
+  
+  // Convert to inches
+  
+  // Prints the distance in the Serial Monitor
+  Serial.print("Distance lange sensor(cm): ");
+  Serial.println(distanceCm);
+
+  
+  delay(1000);
+}
