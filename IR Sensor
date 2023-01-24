@@ -1,0 +1,61 @@
+#define IRSensorVoor 17;
+#define IRSensorAchter 12;
+#define Motor_Speed 180;
+
+//MotorDriver voor
+int MotorPinLiksVoor1 = 14;
+int MotorPinLinksVoor2 = 27;
+int MotorPinRechtsVoor1 = 26;
+int MotorPinRechtsvoor2 = 25;
+
+//MotorDriver achter
+int MotorLinksAchter1 = 2;
+int MotorLinksAchter2 = 0;
+int MotorRechtsAchter1 = 4;
+in MotorRechtsAchter2 = 16;
+
+void setup()
+{
+TCCR0B = TCCR0B & B11111000 | B00000010;
+PinMode(MotorPinLiksVoor1, OUTPUT);
+Pinmode(MotorPinLinksVoor2, OUTPUT);
+Pinmode(MotorPinRechtsVoor1, OUTPUT);
+Pinmode(MotorPinRechtsVoor2, OUTPUT);
+
+Pinmode(MotorPinLinksAchter1, OUTPUT);
+Pinmode(MotorPinLinksAchter2, OUTPUT);
+Pinmode(MotorPinRechtsAchter1, OUTPUT);
+Pinmode(MotorPinRechtsAchter2, OUTPUT);
+
+Pinmode(IRSensorVoor, INPUT);
+Pinmode(IRSensorAchter, INPUR);
+rotateMotor(0,0);
+ }
+ 
+void loop()
+{
+int IRSensorVoorWaarde = digitalRead(IRSensorVoor);
+int IRSensorAchterWaarde = digitalRead(IRSensorAchter);
+
+//If none of the sensors detect black line, then go straight
+if (IRSensorVoorWaarde == LOW && IRSensorAchterWaarde == LOW) 
+ { 
+    rotateMotor (Motor_Speed, Motor_Speed);
+ }
+ 
+ //if right sensor detects black line turn right
+ else if (IRSensorVoorWaarde == HIGH && IRSensorVoorWaarde == LOW)
+ {
+  rotateMotor(-Motor_Speed, Motor_Speed);
+ }
+ else if (IRSensorVoorWaarde == LOW && IRSensorAchterWaarde == HIGH)
+ {
+  rotateMotor (Motor_Speed, -Motor_Speed);
+ }
+ 
+ else
+ {
+ rotateMotor (0,0);
+  }
+ }
+ 
