@@ -1,0 +1,125 @@
+const int motorAchterIn1 = 16;
+const int motorAchterIn2 = 4;
+const int motorAchterIn3 = 0;
+const int motorAchterIn4 = 2;
+const int motorVoorIn1 = 14;
+const int motorVoorIn2 = 27;
+const int motorVoorIn3 = 26;
+const int motorVoorIn4 = 25;
+void setup() {
+  Serial.begin(115200);
+    pinMode(motorAchterIn1, OUTPUT);
+  pinMode(motorAchterIn2, OUTPUT);
+  pinMode(motorAchterIn3, OUTPUT);
+  pinMode(motorAchterIn4, OUTPUT);
+  pinMode(motorVoorIn1, OUTPUT);
+  pinMode(motorVoorIn2, OUTPUT);
+  pinMode(motorVoorIn3, OUTPUT);
+  pinMode(motorVoorIn4, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  motoren();
+}
+
+void motoren(){
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, LOW);
+  delay(1000);
+  digitalWrite(motorAchterIn1, HIGH);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, HIGH);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, LOW);
+  delay(1000);
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, HIGH);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, HIGH);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, LOW);
+  delay(1000);
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, HIGH);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, HIGH);
+  digitalWrite(motorVoorIn4, LOW);
+  delay(1000);
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, HIGH);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, HIGH);
+  delay(1000);
+}
+
+void drive(String direction){
+  if (direction = "forward"){
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, LOW);
+  }
+  if (direction = "left"){
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, LOW);
+  }
+  if (direction = "backward"){
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, LOW);
+  }
+  if (direction = "right"){
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, LOW);
+  }
+  if (direction = "stop"){
+  digitalWrite(motorAchterIn1, LOW);
+  digitalWrite(motorAchterIn2, LOW);
+  digitalWrite(motorAchterIn3, LOW);
+  digitalWrite(motorAchterIn4, LOW);
+  digitalWrite(motorVoorIn1, LOW);
+  digitalWrite(motorVoorIn2, LOW);
+  digitalWrite(motorVoorIn3, LOW);
+  digitalWrite(motorVoorIn4, LOW);
+  }
+}
